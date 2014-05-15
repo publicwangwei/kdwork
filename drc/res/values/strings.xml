@@ -41,5 +41,12 @@
         <item>海玛特（中国）投资有限公司</item>
         <item>欧普照明股份有限公司</item>
     </string-array>
+    <string name="hint_search_project">请输入项目名称</string>
+    <string name="net_disconect">网络未连接，检查网络设置</string>
+    <string name="prj_projectName">项目名称</string>
+    <string name="prj_projectNo">项目编号</string>
+    <string name="prj_conDays">合同人天</string>
+    <string name="prj_impAmount">实施金额</string>
+    <string name="prj_noDatas">未查询到和您相关的数据</string>
 
 </resources>

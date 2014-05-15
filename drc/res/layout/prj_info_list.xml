@@ -29,6 +29,17 @@
         android:minHeight="50dp"
         android:orientation="vertical" >
 
+        <!--
+        <TextView
+            android:id="@+id/prjNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="TextView"
+            android:textColor="#7C7C7C"
+            android:visibility="gone" />
+        -->
+
         <TextView
             android:id="@+id/prjName"
             android:layout_width="wrap_content"

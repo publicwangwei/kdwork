@@ -20,5 +20,6 @@
     <color name="green">#00FF00</color>
     <color name="grey21">#363636</color>
     <color name="gold">#b89766</color>
+    <color name="light_green">#CCFFCC</color>
 
 </resources>

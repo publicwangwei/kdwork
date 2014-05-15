@@ -47,6 +47,109 @@
 
     
 
+    <!-- 搜索部分 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dip"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <!-- android:background="@drawable/search_bar_bg" -->
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_bar_edit_bg"
+            android:drawableRight="@drawable/search_bar_icon_normal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="项目名称搜索"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textSize="14sp" >
+        </EditText>
+    </LinearLayout>
+
+    <!-- 图文上 -->
+
+    <LinearLayout
+        android:id="@+id/login_div"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/background_login_div_bg"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="江苏长顺集团有限公司"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="合同人天：80人天"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="复核人天：61人天"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right" >
+
+            <ImageView
+                android:id="@+id/imageView_t1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/link_in" >
+            </ImageView>
+        </LinearLayout>
+    </LinearLayout>
+
+    
+       <!-- 图文结束 -->     
+    
+    
+    
     
         <TextView
         android:id="@+id/textview6"

@@ -21,9 +21,10 @@ import org.apache.http.util.EntityUtils;
 
 public class HttpUtil {
 
-	public static String postData(String url, Map<String, String> reparams) {
+	public static String postData(String methodName,
+			Map<String, String> reparams) {
 		String strResult = null;
-		HttpPost post = new HttpPost(url);
+		HttpPost post = new HttpPost(Constant.URL);
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		Set<String> keys = reparams.keySet();
 		Iterator<String> it = keys.iterator();
@@ -31,7 +32,10 @@ public class HttpUtil {
 			String key = it.next();
 			params.add(new BasicNameValuePair(key, reparams.get(key)));
 		}
-
+		params.add(new BasicNameValuePair("token", Constant.TOKEN));
+		params.add(new BasicNameValuePair("methodName", methodName));
+		JSONUtil jsonUtil = new JSONUtil();
+		jsonUtil.setCode("3");
 		try {
 			HttpEntity httpentity = new UrlEncodedFormEntity(params, "UTF-8");
 			post.setEntity(httpentity);
@@ -39,12 +43,16 @@ public class HttpUtil {
 			HttpResponse res = client.execute(post);
 			if (res.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 				strResult = EntityUtils.toString(res.getEntity(), "UTF-8");
+			} else {
+				jsonUtil.setMsg(res.getStatusLine().toString());
 			}
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
+			jsonUtil.setMsg(e.getMessage());
 		} catch (IOException e) {
 			e.printStackTrace();
+			jsonUtil.setMsg(e.getMessage());
 		}
-		return strResult;
+		return strResult == null ? jsonUtil.toString() : strResult;
 	}
 }

@@ -182,10 +182,9 @@ public class activity_menu extends Activity implements OnTouchListener,
 		imageButton_t1.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				imageButton_t1.setBackgroundResource(R.drawable.prj1);
 				Intent intent = new Intent(activity_menu.this,
-						activity_prj_index.class);
+						activity_prj_info_detail.class);
 				startActivity(intent);
 				overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
 			}
