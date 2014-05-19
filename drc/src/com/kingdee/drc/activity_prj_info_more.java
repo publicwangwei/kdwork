@@ -59,7 +59,7 @@ public class activity_prj_info_more extends Activity implements
 		projectName.setText(bundle.getString("projectName"));
 		projectAmount.setText(bundle.getString("impAmount"));
 		planDays.setText(bundle.getString("conDays"));
-		this.projectNo = bundle.getString("projectName");
+		this.projectNo = bundle.getString("projectNo");
 		// listView_1 = (MyListView) findViewById(R.id.mylistview_1);
 		listView_2 = (MyListView) findViewById(R.id.mylistview_2);
 		// listView_3 = (MyListView) findViewById(R.id.mylistview_3);
@@ -79,9 +79,10 @@ public class activity_prj_info_more extends Activity implements
 
 			@Override
 			protected Void doInBackground(Void... params) {
-				ProjectModel pmModel = new ProjectModel();
-				Map<String, String> paramses = new HashMap<String, String>();
 				try {
+					ProjectModel pmModel = new ProjectModel();
+					Map<String, String> paramses = new HashMap<String, String>();
+					paramses.put("projectNo", projectNo);
 					data = pmModel.getProjectDetail(paramses);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -98,7 +99,8 @@ public class activity_prj_info_more extends Activity implements
 							pdDialog.cancel();
 						}
 						try {
-							if (!data.isNull("projectInfo")
+							if (data != null
+									&& !data.isNull("projectInfo")
 									&& data.getJSONObject("projectInfo")
 											.length() > 0) {
 								Intent intent = new Intent(
@@ -252,9 +254,18 @@ public class activity_prj_info_more extends Activity implements
 		Map<String, String> map = listData2.get(position);
 		Toast.makeText(activity_prj_info_more.this, map.get("text"), 1).show();
 		if (isDataLoaded) {
-			Intent intent = new Intent(activity_prj_info_more.this,
-					ProjectBaseInfoActivity.class);
-			startActivity(intent);
+			try {
+				if (data != null && !data.isNull("projectInfo")
+						&& data.getJSONObject("projectInfo").length() > 0) {
+					Intent intent = new Intent(activity_prj_info_more.this,
+							ProjectBaseInfoActivity.class);
+					intent.putExtra("projectInfo",
+							data.getJSONObject("projectInfo").toString());
+					startActivity(intent);
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
 		} else {
 			pdDialog = new ProgressDialog(activity_prj_info_more.this);
 			pdDialog.show(activity_prj_info_more.this, "提示", "正在加载数据....",
