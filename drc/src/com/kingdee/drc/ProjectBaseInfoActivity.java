@@ -32,6 +32,7 @@ public class ProjectBaseInfoActivity extends Activity {
 	private List<RowData> baseInfo;
 	private List<RowData> projectDetail;
 	private Handler handler;
+	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
