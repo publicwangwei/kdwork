@@ -29,7 +29,7 @@ public class ProjectModel {
 			throws Exception {
 		List<ProjectInfo> projectInfos = null;
 		String result = HttpUtil.postData(Constant.GET_PROJECTS_METHOD, params);
-		JSONObject obj = new JSONObject(result);
+		// JSONObject obj = new JSONObject(result);
 		JSONUtil jsonUtil = new JSONUtil();
 		jsonUtil.parseJsonStr(result);
 		if ("0".equals(jsonUtil.getCode())) {
@@ -57,15 +57,16 @@ public class ProjectModel {
 
 	public JSONObject getProjectDetail(Map<String, String> params)
 			throws Exception {
-		List<ProjectInfo> projectInfos = null;
-		String result = HttpUtil.postData(Constant.GET_PROJECTDETAIL_METHOD, params);
+		// List<ProjectInfo> projectInfos = null;
+		String result = HttpUtil.postData(Constant.GET_PROJECTDETAIL_METHOD,
+				params);
 		JSONObject obj = new JSONObject(result);
 		JSONUtil jsonUtil = new JSONUtil();
 		jsonUtil.parseJsonStr(result);
 		if ("0".equals(jsonUtil.getCode())) {
 			if (jsonUtil.getData() != null) {
-				projectInfos = new ArrayList<ProjectInfo>();
-				ProjectInfo proInfo;
+				// projectInfos = new ArrayList<ProjectInfo>();
+				// ProjectInfo proInfo;
 				JSONArray datas = jsonUtil.getData();
 				return datas.length() > 0 ? datas.optJSONObject(0) : null;
 			}
