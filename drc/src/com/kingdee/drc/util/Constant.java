@@ -2,7 +2,7 @@ package com.kingdee.drc.util;
 
 public class Constant {
 	public static boolean DEBUG = true;
-	public static String HOST = "192.168.61.25";
+	public static String HOST = "192.168.61.28";
 	// public static String HOST = "http://58.210.35.130";
 	public static String HOSTS = "[\"58.210.35.130\",\"192.168.61.29\"]";
 	public static String PORT = "8080";
