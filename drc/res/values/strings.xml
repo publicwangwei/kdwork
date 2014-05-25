@@ -48,5 +48,8 @@
     <string name="prj_conDays">合同人天</string>
     <string name="prj_impAmount">实施金额</string>
     <string name="prj_noDatas">未查询到和您相关的数据</string>
+    <string name="prj_prjMember_name">姓名</string>
+    <string name="prj_prjMember_role">项目角色</string>
+    <string name="prj_prjMember_mobile">联系方式</string>
 
 </resources>

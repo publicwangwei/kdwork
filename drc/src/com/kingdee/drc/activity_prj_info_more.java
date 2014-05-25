@@ -255,14 +255,31 @@ public class activity_prj_info_more extends Activity implements
 		Toast.makeText(activity_prj_info_more.this, map.get("text"), 1).show();
 		if (isDataLoaded) {
 			try {
-				if (data != null && !data.isNull("projectInfo")
-						&& data.getJSONObject("projectInfo").length() > 0) {
-					Intent intent = new Intent(activity_prj_info_more.this,
-							ProjectBaseInfoActivity.class);
-					intent.putExtra("projectInfo",
-							data.getJSONObject("projectInfo").toString());
-					startActivity(intent);
+				switch (position) {
+				case 0:
+					if (data != null && !data.isNull("projectInfo")
+							&& data.getJSONObject("projectInfo").length() > 0) {
+						Intent intent = new Intent(activity_prj_info_more.this,
+								ProjectBaseInfoActivity.class);
+						intent.putExtra("projectInfo",
+								data.getJSONObject("projectInfo").toString());
+						startActivity(intent);
+					}
+					break;
+				case 1:
+					if (data != null && !data.isNull("projectMember")
+							&& data.getJSONArray("projectMember").length() > 0) {
+						Intent intent = new Intent(activity_prj_info_more.this,
+								ProjectMemberActivity.class);
+						intent.putExtra("projectMember",
+								data.getJSONArray("projectMember").toString());
+						startActivity(intent);
+					}
+					break;
+				default:
+					break;
 				}
+
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
